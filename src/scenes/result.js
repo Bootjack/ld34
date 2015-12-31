@@ -6,7 +6,6 @@ define([
 
     return {
         curtains: ['result'],
-        stages: [],
         init: function(){
             Proscenium.curtains.result.resultScene = this;
         },

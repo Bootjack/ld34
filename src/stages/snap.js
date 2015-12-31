@@ -14,7 +14,7 @@ define([
     function buildTranslationMatrix(point) {
         return new Snap.matrix().translate(
             scale * (point.x + offset.x),
-            scale * (-1 * point.y - offset.y)
+            scale * (point.y - offset.y)
         );
     }
 
@@ -45,23 +45,12 @@ define([
             this.snap = Snap('#snap-stage');
         },
         prep: function () {
-            var ceiling, floor, player, snap;
+            var player, snap;
 
-            ceiling = Proscenium.actors.ceiling;
-            floor = Proscenium.actors.floor;
             player = Proscenium.actors.player;
             snap = this.snap;
 
-            offset.y = -0.8 * $(this.snap.node).height() / scale;
-
             player.svg = this.snap.path(buildPathString(player.snap));
-
-            Proscenium.roles.obstacle.members.forEach(function (obstacle) {
-                obstacle.svg = snap.path(buildPathString(buildRectanglePath(obstacle.state)));
-            });
-
-            ceiling.svg.addClass('ceiling');
-            floor.svg.addClass('floor');
         },
         evaluate: function () {
             var player, playerMatrix;
@@ -70,11 +59,6 @@ define([
             playerMatrix = buildTranslationMatrix(player.state);
 
             player.svg.transform(playerMatrix);
-
-            Proscenium.roles.obstacle.members.forEach(function (obstacle) {
-                var obstacleMatrix = buildTranslationMatrix(obstacle.state);
-                obstacle.svg.transform(obstacleMatrix);
-            });
         },
         clear: function (scene) {
             scene.actors.forEach(function (actor) {

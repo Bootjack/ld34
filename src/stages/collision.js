@@ -8,7 +8,7 @@ define([
     Snap
 ) {
 
-    var obstacleIndex = 0,
+    var entityIndex = 0,
         offset = {x: 0, y: 0},
         scale = 40; // pixels per meter
 
@@ -21,7 +21,7 @@ define([
 
     return {
         evaluate: function () {
-            var collision, obstacle, obstacles, obstacleAbsolute, obstacleMatrix,
+            var collision, entity, entities, entityAbsolute, entityMatrix,
                 player, playerAbsolute, playerMatrix;
 
             player = Proscenium.actors.player;
@@ -29,18 +29,17 @@ define([
 
             playerAbsolute = Snap.path.map(player.svg, playerMatrix);
 
+            entities = Proscenium.roles.entity.members;
+            entity = entities[entityIndex++] || entities[entityIndex = 0];
 
-            obstacles = Proscenium.roles.obstacle.members;
-            obstacle = obstacles[obstacleIndex++] || obstacles[obstacleIndex = 0];
+            entityMatrix = buildTranslationMatrix(entity.state);
+            entityAbsolute = Snap.path.map(entity.svg, entityMatrix);
 
-            obstacleMatrix = buildTranslationMatrix(obstacle.state);
-            obstacleAbsolute = Snap.path.map(obstacle.svg, obstacleMatrix);
-
-            collision = Snap.path.isPointInside(obstacleAbsolute, playerMatrix.x(player.state.x, player.state.y), playerMatrix.y(player.state.x, player.state.y));
-            collision = collision || Snap.path.intersection(playerAbsolute, obstacleAbsolute).length;
+            collision = Snap.path.isPointInside(entityAbsolute, playerMatrix.x(player.state.x, player.state.y), playerMatrix.y(player.state.x, player.state.y));
+            collision = collision || Snap.path.intersection(playerAbsolute, entityAbsolute).length;
 
             if (collision) {
-                Proscenium.actors.player.set('isDead', true);
+                //Proscenium.actors.player.set('isDead', true);
             }
         }
     };

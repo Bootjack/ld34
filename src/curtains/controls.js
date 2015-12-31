@@ -28,11 +28,11 @@ define([
             height = round(Proscenium.actors.player.state.y);
             velocity = round(Proscenium.actors.player.state.velocity);
 
-            text = 'Bat height $height m. Bat velocity $velocity m/s.'
+            text = 'Player height $height m. Player velocity $velocity m/s.'
                 .replace('$height', height)
                 .replace('$velocity', velocity);
 
-            $batStats = $(this.element).find('.bat-stats');
+            $batStats = $(this.element).find('.player-stats');
 
             $batStats.text(text);
         }

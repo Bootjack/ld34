@@ -12,11 +12,11 @@ define([
             var player = Proscenium.actors.player;
             $(document).on('keydown.inputCurtain', function (evt) {
                 if (evt.which === 32) {
-                    player.flap();
+                    //player.flap();
                 }
             });
             $(this.element).on('click', function (evt) {
-                player.flap();
+                //player.flap();
             });
         }
     };

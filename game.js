@@ -11,11 +11,10 @@ require([
     'proscenium',
 
     'src/stages/collision',
-    'src/stages/physics',
     'src/stages/snap',
 
-    'src/roles/bat',
-    'src/roles/obstacle',
+    'src/roles/cell',
+    'src/roles/player',
 
     'src/curtains/splash',
     'src/curtains/input',
@@ -23,17 +22,16 @@ require([
     'src/curtains/result',
 
     'src/scenes/start',
-    'src/scenes/flying',
+    'src/scenes/growing',
     'src/scenes/result'
 ], function (
     Proscenium,
 
     collisionStage,
-    physicsStage,
     snapStage,
 
-    batRole,
-    obstacleRole,
+    cellRole,
+    playerRole,
 
     splashCurtains,
     inputCurtain,
@@ -41,29 +39,22 @@ require([
     resultCurtain,
 
     startScene,
-    level1Scene,
+    growingScene,
     resultScene
 ) {
     Proscenium.stage('collision', collisionStage);
-    Proscenium.stage('physics', physicsStage);
     Proscenium.stage('snap', snapStage);
 
-    Proscenium.role('bat', batRole);
-    Proscenium.actor('player').role('bat');
+    Proscenium.role('entity');
+    Proscenium.role('player', cellRole);
 
-    Proscenium.role('obstacle', obstacleRole);
-    Proscenium.actor('floor').role('obstacle');
-    Proscenium.actor('ceiling').role('obstacle');
-
-    Proscenium.role('terrain');
-    (Array(10).join('ab') + 'a').split('b').forEach(function (x) {
-        Proscenium.actor().role(['obstacle', 'terrain']);
-    });
-    console.log(Proscenium.roles.terrain.members);
+    Proscenium.role('player', playerRole);
+    Proscenium.actor('player').role(['entity', 'player']);
 
     Proscenium.curtain('splash', splashCurtains);
     Proscenium.curtains.splash.levels = [{
-      number: 1
+        number: 1,
+        scene: 'growing'
     }];
 
     Proscenium.curtain('input', inputCurtain);
@@ -71,7 +62,7 @@ require([
     Proscenium.curtain('result', resultCurtain);
 
     Proscenium.scene('start', startScene);
-    Proscenium.scene('level1', level1Scene);
+    Proscenium.scene('growing', growingScene);
     Proscenium.scene('result', resultScene);
 
     Proscenium.scenes.start.begin();

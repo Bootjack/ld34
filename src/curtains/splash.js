@@ -5,10 +5,9 @@ define([
     $,
     Proscenium
 ){
-    function handleLevelButtonClick (currentScene, levelNumber) {
+    function handleLevelButtonClick (currentScene, levelSceneId) {
         var levelSceneId, scene;
 
-        levelSceneId = 'level' + levelNumber;
         scene = Proscenium.scenes[levelSceneId];
         if (scene) {
             currentScene.end();
@@ -26,7 +25,7 @@ define([
 
             levels.forEach(function (level) {
                 var $button = $('<button>').text('Level ' + level.number);
-                $button.on('click', handleLevelButtonClick.bind(self, Proscenium.scenes.start, level.number));
+                $button.on('click', handleLevelButtonClick.bind(self, Proscenium.scenes.start, level.scene));
                 $levels.append($button);
             });
         }
