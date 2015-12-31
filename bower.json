@@ -1,0 +1,29 @@
+{
+  "name": "bootjack-ld34",
+  "authors": [
+    "Jason Hinebaugh <jason.hinebaugh@gmail.com>"
+  ],
+  "description": "A game built with Proscenium",
+  "main": "game.js",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.20",
+    "jquery": "~2.1",
+    "snap.svg": "~0.4.1"
+  },
+  "devDependencies": {
+    "normalize-css": "~3.0.3"
+  }
+}

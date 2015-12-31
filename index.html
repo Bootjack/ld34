@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snappy Bat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="normalize.css" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+    <div id="game-container">
+        <svg id="snap-stage"></svg>
+
+        <div id="splash-curtain" class="curtain">
+            <h2>Snappy Bat</h2>
+            <div class="levels"></div>
+        </div>
+
+        <div id="controls-curtain" class="curtain">
+            <div class="bat-stats"></div>
+            <button class="win">Die!</button>
+        </div>
+
+        <div id="result-curtain" class="curtain">
+            <button class="replay">Replay</button>
+            <button class="levels">Select Level</button>
+            <button class="proceed">Next Level</button>
+        </div>
+
+        <div id="input-curtain" class="curtain"></div>
+
+        <script src="require.js" data-main="game.js"></script>
+</body>
+</html>
