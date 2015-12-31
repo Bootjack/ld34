@@ -6,6 +6,18 @@ define([
     Proscenium
 ) {
 
+    function populateCells() {
+        Proscenium.actor().role(['entity', 'cell'])
+            .set('x', 5)
+            .set('y', 5);
+        Proscenium.actor().role(['entity', 'cell'])
+            .set('x', 4.5)
+            .set('y', 6);
+        Proscenium.actor().role(['entity', 'cell'])
+            .set('x', 5.5)
+            .set('y', 6);
+    }
+
     return {
         curtains: ['input', 'controls'],
         stages: ['snap', 'collision'],
@@ -33,7 +45,9 @@ define([
                 .set('y', 2)
                 .set('velocity', 5);
 
-            this.actors = this.actors.concat(player);
+            populateCells();
+
+            this.actors = this.actors.concat(player, Proscenium.roles.cell.members);
 
             $(Proscenium.curtains.controls.element).show();
             $(Proscenium.curtains.input.element).show();

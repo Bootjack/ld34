@@ -46,7 +46,7 @@ require([
     Proscenium.stage('snap', snapStage);
 
     Proscenium.role('entity');
-    Proscenium.role('player', cellRole);
+    Proscenium.role('cell', cellRole);
 
     Proscenium.role('player', playerRole);
     Proscenium.actor('player').role(['entity', 'player']);

@@ -51,6 +51,10 @@ define([
             snap = this.snap;
 
             player.svg = this.snap.path(buildPathString(player.snap));
+
+            Proscenium.roles.cell.members.forEach(function (cell) {
+                cell.svg = snap.path(buildPathString(cell.snap));
+            });
         },
         evaluate: function () {
             var player, playerMatrix;
@@ -59,6 +63,11 @@ define([
             playerMatrix = buildTranslationMatrix(player.state);
 
             player.svg.transform(playerMatrix);
+
+            Proscenium.roles.cell.members.forEach(function (cell) {
+                var obstacleMatrix = buildTranslationMatrix(cell.state);
+                cell.svg.transform(obstacleMatrix);
+            });
         },
         clear: function (scene) {
             scene.actors.forEach(function (actor) {
