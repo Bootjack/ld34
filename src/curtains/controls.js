@@ -23,18 +23,16 @@ define([
             Proscenium.actors.player.on('update', this.render, this);
         },
         render: function () {
-            var $batStats, height, text, velocity;
+            var $organismStats, organism, text;
 
-            height = round(Proscenium.actors.player.state.y);
-            velocity = round(Proscenium.actors.player.state.velocity);
+            organism = Proscenium.actors.organism;
+            if (organism && organism.nucleus) {
+                text = 'Nucleus energy: $energy'
+                    .replace('$energy', round(organism.nucleus.state.energy));
 
-            text = 'Player height $height m. Player velocity $velocity m/s.'
-                .replace('$height', height)
-                .replace('$velocity', velocity);
-
-            $batStats = $(this.element).find('.player-stats');
-
-            $batStats.text(text);
+                $organismStats = $(this.element).find('.organism-stats');
+                $organismStats.text(text);
+            }
         }
     };
 });

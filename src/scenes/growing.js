@@ -33,7 +33,7 @@ define([
                 .set('y', 2)
                 .set('velocity', 5);
 
-            organism = Proscenium.actor().role('organism');
+            organism = Proscenium.actor('organism').role('organism');
             organism.nucleus.set('x', 5).set('y', 5);
             window.organism = organism;
 
