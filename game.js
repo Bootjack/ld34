@@ -14,6 +14,8 @@ require([
     'src/stages/snap',
 
     'src/roles/cell',
+    'src/roles/nucleus',
+    'src/roles/organism',
     'src/roles/player',
 
     'src/curtains/splash',
@@ -31,6 +33,8 @@ require([
     snapStage,
 
     cellRole,
+    nucleusRole,
+    organismRole,
     playerRole,
 
     splashCurtains,
@@ -47,6 +51,8 @@ require([
 
     Proscenium.role('entity');
     Proscenium.role('cell', cellRole);
+    Proscenium.role('nucleus', nucleusRole);
+    Proscenium.role('organism', organismRole);
 
     Proscenium.role('player', playerRole);
     Proscenium.actor('player').role(['entity', 'player']);

@@ -57,16 +57,21 @@ define([
             });
         },
         evaluate: function () {
-            var player, playerMatrix;
+            var player, playerMatrix, snap;
 
+            snap = this.snap;
             player = Proscenium.actors.player;
             playerMatrix = buildTranslationMatrix(player.state);
 
             player.svg.transform(playerMatrix);
 
             Proscenium.roles.cell.members.forEach(function (cell) {
-                var obstacleMatrix = buildTranslationMatrix(cell.state);
-                cell.svg.transform(obstacleMatrix);
+                var cellMatrix = buildTranslationMatrix(cell.state);
+                if (!cell.svg) {
+                    cell.svg = snap.path(buildPathString(cell.snap));
+                }
+                cell.svg.transform(cellMatrix);
+                cell.svg.attr('fill', cell.getColor());
             });
         },
         clear: function (scene) {

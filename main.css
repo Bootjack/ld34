@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #snap-stage {
-    background-color: #509bef;
+    background-color: rgb(64, 64, 64);
     height: 100%;
     left: 0;
     position: absolute;
