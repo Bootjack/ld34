@@ -11,6 +11,7 @@ define([], function () {
             this.state.acceleration = 0;
             this.state.flapDuration = 0;
             this.state.flapCooldown = 0;
+            this.state.action = 'idle';
         },
         evaluate: function (interval) {
             var flapDuration, handler;
@@ -31,13 +32,17 @@ define([], function () {
             }
         },
         snap: {
-            origin: {x: -0.8, y: -0.5},
+            origin: {x: -0.2, y: 0},
             points: [
-                {x: 0, y: 0},
-                {x: 0.8, y: -0.5},
+                {x: -0.8, y: -0.6},
+                {x: -0.8, y: -0.8},
+                {x: 0.5, y: -0.8},
                 {x: 0.8, y: 0},
-                {x: 0, y: 0.8},
-                {x: -0.8, y: 0}
+                {x: 0.5, y: 0.8},
+                {x: 0.8, y: 0.8},
+                {x: -0.8, y: 0.8},
+                {x: -0.8, y: 0.6},
+                {x: -0.2, y: 0}
             ]
         }
     };

@@ -33,6 +33,13 @@ define([
                 $organismStats = $(this.element).find('.organism-stats');
                 $organismStats.text(text);
             }
+
+            $playerStats = $(this.element).find('.player-stats');
+            action = Proscenium.actors.player.state.action;
+            text = 'Player $action'
+                .replace('$action', action);
+            $playerStats.text(text);
+
         }
     };
 });

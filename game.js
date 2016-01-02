@@ -1,6 +1,7 @@
 require.config({
     paths: {
         jquery: 'bower_components/jquery/dist/jquery.min',
+        'jquery.mobile': 'lib/jquery.mobile',
         proscenium: 'lib/proscenium/proscenium',
         snapsvg: 'bower_components/Snap.svg/dist/snap.svg-min',
         text: 'bower_components/text/text'
