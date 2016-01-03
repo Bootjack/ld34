@@ -25,12 +25,12 @@ define([
                 }
             });
             // listen for abstracted/virtualized events provided through jquery.mobile
-            $stage.on({
-                vmouseup: inputHandler,
-                vmousedown: inputHandler,
-                vmousemove: inputHandler,
-                keydown: keypressHandler
-            });
+            // $stage.on({
+            //     vmouseup: inputHandler,
+            //     vmousedown: inputHandler,
+            //     vmousemove: inputHandler,
+            //     keydown: keypressHandler
+            // });
         },
     };
 });

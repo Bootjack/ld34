@@ -69,6 +69,10 @@ define([
                 var cellMatrix = buildTranslationMatrix(cell.state);
                 if (!cell.svg) {
                     cell.svg = snap.path(buildPathString(cell.snap));
+                    cell.svg.click(
+                        // cell.svgClickHandler
+                        function(){ console.log('handling click on cell svg element'); }
+                    );
                 }
                 cell.svg.transform(cellMatrix);
                 cell.svg.attr('fill', cell.getColor());
