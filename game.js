@@ -73,4 +73,7 @@ require([
     Proscenium.scene('result', resultScene);
 
     Proscenium.scenes.start.begin();
+
+    // for debugging purposes
+    window.Proscenium = Proscenium;
 });

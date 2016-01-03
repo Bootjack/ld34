@@ -43,6 +43,23 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-user-select: none;
     user-select: none;
     z-index: 1200;
+    width: 100%;
+}
+.cell-stats {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    background: #eee;
+}
+.cell-stats tr:first-child td {
+    background: #f2f2de;
+    border-bottom: solid 1px #edc;
+}
+.cell-stats td {
+    padding: 0.2em 0.4em;
+}
+.cell-stats td:first-child {
+    color: #777;
 }
 
 #input-curtain {

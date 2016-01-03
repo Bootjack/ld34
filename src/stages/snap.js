@@ -71,7 +71,9 @@ define([
                     cell.svg = snap.path(buildPathString(cell.snap));
                     cell.svg.click(
                         // cell.svgClickHandler
-                        function(){ console.log('handling click on cell svg element'); }
+                        function(){
+                            Proscenium.actors.player.set('targetCell', cell);
+                        }
                     );
                 }
                 cell.svg.transform(cellMatrix);
