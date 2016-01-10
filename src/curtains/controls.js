@@ -41,12 +41,12 @@ define([
 
             if( targetCell = Proscenium.actors.player.state.targetCell ){
                 $cellStats = $(this.element).find('.cell-stats');
-                $cellStats.find('.energy').text( Math.round(100*targetCell.state.energy)/100 );
-                $cellStats.find('.transmission').text( Math.round(100*targetCell.state.transmission)/100 );
-                $cellStats.find('.collection').text( Math.round(100*targetCell.state.collection)/100 );
-                $cellStats.find('.sensation').text( Math.round(100*targetCell.state.sensation)/100 );
-                $cellStats.find('.locomotion').text( Math.round(100*targetCell.state.locomotion)/100 );
-                $cellStats.find('.protection').text( Math.round(100*targetCell.state.protection)/100 );
+                $cellStats.find('.energy').text( round(targetCell.state.energy) );
+                $cellStats.find('.transmission').text( round(targetCell.state.transmission) );
+                $cellStats.find('.collection').text( round(targetCell.state.collection) );
+                $cellStats.find('.sensation').text( round(targetCell.state.sensation) );
+                $cellStats.find('.locomotion').text( round(targetCell.state.locomotion) );
+                $cellStats.find('.protection').text( round(targetCell.state.protection) );
             }
 
         }

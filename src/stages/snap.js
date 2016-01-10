@@ -61,15 +61,19 @@ define([
 
             snap = this.snap;
             player = Proscenium.actors.player;
-            playerMatrix = buildTranslationMatrix(player.state);
-
+            playerMatrix = Snap.matrix().translate(
+                player.state.x,
+                player.state.y
+            );
             player.svg.transform(playerMatrix);
 
             Proscenium.roles.cell.members.forEach(function (cell) {
                 var cellMatrix = buildTranslationMatrix(cell.state);
                 if (!cell.svg) {
                     cell.svg = snap.path(buildPathString(cell.snap));
-                    cell.svg.click(
+                    // there's also cell.svg.click
+                    // but do either of these handle touch?
+                    cell.svg.mousedown(
                         // cell.svgClickHandler
                         function(){
                             Proscenium.actors.player.set('targetCell', cell);
